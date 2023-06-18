@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ac32f11-2efa-4cbd-af4a-68267579814a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/domain/Enum/Side.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/MatchingEngineImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/OrderServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/MatchingEngineService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/domain/OrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/OrderServiceTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="2ac32f11-2efa-4cbd-af4a-68267579814a" name="Changes" comment="Implement OrderBook and Matching Engine" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,6 +139,14 @@
       <option name="presentableId" value="Default" />
       <updated>1686912870160</updated>
     </task>
+    <task id="LOCAL-00001" summary="Implement OrderBook and Matching Engine">
+      <created>1687098922453</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687098922453</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +159,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement OrderBook and Matching Engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement OrderBook and Matching Engine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
