@@ -51,7 +51,7 @@ public class MatchingEngineServiceTest {
     }
 
     @Test
-    public void testMatchBuyOrder_NoMatchingSellOrders() {
+    public void testMatchBuyOrder_NoMatchingSellOrders() throws Exception {
 
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(100)), eq(Side.SELL)))
                 .thenReturn(Collections.emptyList());
@@ -65,11 +65,11 @@ public class MatchingEngineServiceTest {
         assertEquals(100, buyOrder.getQuantity());
     }
     @Test
-    public void testMatchBuyOrder_SingleMatchingSellOrder_FullyFillsBuyOrder() {
+    public void testMatchBuyOrder_SingleMatchingSellOrder_FullyFillsBuyOrder() throws Exception {
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(100)), eq(Side.SELL)))
                 .thenReturn(Collections.singletonList(sellOrder5));
 
-        matchingEngineImplementation.matchBuyOrder(buyOrder);
+        matchingEngineImplementation.match(buyOrder);
 
         // verify that the deleteOrder method was called with the sell order
         verify(orderServiceImplementation, times(1)).deleteOrder(eq(sellOrder5.getId()));
@@ -82,7 +82,7 @@ public class MatchingEngineServiceTest {
     }
 
     @Test
-    public void testMatchBuyOrder_SingleMatchingSellOrder_PartiallyFillsBuyOrder() {
+    public void testMatchBuyOrder_SingleMatchingSellOrder_PartiallyFillsBuyOrder() throws Exception {
 
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(100)), eq(Side.SELL)))
                 .thenReturn(Collections.singletonList(sellOrder1));
@@ -97,7 +97,7 @@ public class MatchingEngineServiceTest {
 
     }
     @Test
-    public void testMatchBuyOrder_MultipleMatchingSellOrders_FullyOrPartiallyFillBuyOrder() {
+    public void testMatchBuyOrder_MultipleMatchingSellOrders_FullyOrPartiallyFillBuyOrder() throws Exception {
         List<Order> sellOrders = Arrays.asList(sellOrder1, sellOrder2,sellOrder3,sellOrder4);
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(100)), eq(Side.SELL)))
                 .thenReturn(sellOrders);
@@ -113,7 +113,7 @@ public class MatchingEngineServiceTest {
     }
 
     @Test
-    public void testMatchSellOrder_NoMatchingBuyOrders() {
+    public void testMatchSellOrder_NoMatchingBuyOrders() throws Exception {
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(50)), eq(Side.BUY)))
                 .thenReturn(Collections.emptyList());
 
@@ -126,7 +126,7 @@ public class MatchingEngineServiceTest {
         assertEquals(100, sellOrder.getQuantity());
     }
     @Test
-    public void testMatchSellOrder_SingleMatchingBuyOrder_FullyFillsBuyOrder() {
+    public void testMatchSellOrder_SingleMatchingBuyOrder_FullyFillsBuyOrder() throws Exception {
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(50)), eq(Side.BUY)))
                 .thenReturn(Collections.singletonList(buyOrder5));
 
@@ -143,7 +143,7 @@ public class MatchingEngineServiceTest {
     }
 
     @Test
-    public void testMatchSellOrder_SingleMatchingBuyOrder_PartiallyFillsBuyOrder() {
+    public void testMatchSellOrder_SingleMatchingBuyOrder_PartiallyFillsBuyOrder() throws Exception {
 
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(50)), eq(Side.BUY)))
                 .thenReturn(Collections.singletonList(buyOrder1));
@@ -158,7 +158,7 @@ public class MatchingEngineServiceTest {
 
     }
     @Test
-    public void testMatchSellOrder_MultipleMatchingBuyOrders_FullyOrPartiallyFillBuyOrder() {
+    public void testMatchSellOrder_MultipleMatchingBuyOrders_FullyOrPartiallyFillBuyOrder() throws Exception {
         List<Order> buyOrders = Arrays.asList(buyOrder1, buyOrder2,buyOrder3,buyOrder4);
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(50)), eq(Side.BUY)))
                 .thenReturn(buyOrders);

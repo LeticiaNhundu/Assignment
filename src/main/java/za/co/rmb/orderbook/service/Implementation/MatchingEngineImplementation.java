@@ -2,6 +2,7 @@ package za.co.rmb.orderbook.service.Implementation;
 
 import za.co.rmb.orderbook.domain.Enum.Side;
 import za.co.rmb.orderbook.domain.Order;
+import za.co.rmb.orderbook.service.Implementation.Exceptions.OrderNotFoundException;
 import za.co.rmb.orderbook.service.MatchingEngineService;
 import za.co.rmb.orderbook.service.OrderService;
 
@@ -13,7 +14,7 @@ public class MatchingEngineImplementation implements MatchingEngineService {
         _orderService =orderService;
     }
     @Override
-    public void match(Order order) {
+    public void match(Order order) throws Exception {
         if (order.getSide() == Side.BUY) {
            matchBuyOrder(order);
         } else {
@@ -21,7 +22,7 @@ public class MatchingEngineImplementation implements MatchingEngineService {
         }
     }
     @Override
-    public void matchSellOrder(Order sellOrder) {
+    public void matchSellOrder(Order sellOrder) throws Exception {
         List<Order> buyOrders = _orderService.getOrdersByPriceAndSide(sellOrder.getPrice(),Side.BUY);
         for (Order buyOrder:buyOrders) {
             int remainingQuantity = sellOrder.getQuantity();
@@ -43,7 +44,7 @@ public class MatchingEngineImplementation implements MatchingEngineService {
     }
 
     @Override
-    public void matchBuyOrder(Order buyOrder) {
+    public void matchBuyOrder(Order buyOrder) throws OrderNotFoundException {
         List<Order> sellOrders =_orderService.getOrdersByPriceAndSide(buyOrder.getPrice(),Side.SELL);
         for(Order sellOrder:sellOrders) {
                 int remainingQuantity = buyOrder.getQuantity();

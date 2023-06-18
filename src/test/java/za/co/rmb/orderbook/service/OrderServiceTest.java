@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import za.co.rmb.orderbook.domain.Enum.Side;
 import za.co.rmb.orderbook.domain.Order;
+import za.co.rmb.orderbook.service.Implementation.Exceptions.OrderNotFoundException;
 import za.co.rmb.orderbook.service.Implementation.OrderServiceImplementation;
 
 import java.math.BigDecimal;
@@ -37,15 +38,22 @@ public class OrderServiceTest {
         assertEquals(orderId, order.getId());
     }
     @Test
-    public void testDeleteOrder() {
+    public void testDeleteOrder() throws OrderNotFoundException {
         long orderId = orderServiceImplementation.addOrder(deleteOrder);
         orderServiceImplementation.deleteOrder(orderId);
         Order o = orderServiceImplementation.getOrderById(orderId);
         assertNull(o);
 
     }
+    @Test(expected = OrderNotFoundException.class)
+    public void testDeleteOrderWithNonExistingOrderId() throws OrderNotFoundException {
+        long nonExistingOrderId = 1234;
+
+        orderServiceImplementation.deleteOrder(nonExistingOrderId);
+
+    }
     @Test
-    public void testModifyOrder() {
+    public void testModifyOrder() throws OrderNotFoundException {
         long orderId = orderServiceImplementation.addOrder(modifyOrder);
         orderServiceImplementation.modifyOrder(orderId,50);
         orderServiceImplementation.getOrderById(orderId);
@@ -54,7 +62,7 @@ public class OrderServiceTest {
         assertEquals(50,modifyOrder.getQuantity());
     }
     @Test
-    public void testModifyOrder_LostPriority() {
+    public void testModifyOrder_LostPriority() throws OrderNotFoundException {
         long orderId = orderServiceImplementation.addOrder(modifyOrder);
         orderServiceImplementation.addOrder(modifyOrder1);
         orderServiceImplementation.addOrder(modifyOrder2);
@@ -65,6 +73,14 @@ public class OrderServiceTest {
         assertEquals(modifyOrder1, sellOrders.get(0));
         assertEquals(modifyOrder2, sellOrders.get(1));
         assertEquals(modifyOrder, sellOrders.get(2));
+
+    }
+    @Test(expected = OrderNotFoundException.class)
+    public void testModifyOrderWithNonExistingOrderId() throws OrderNotFoundException {
+        long nonExistingOrderId = 1234;
+        int newQuantity = 10;
+
+        orderServiceImplementation.modifyOrder(nonExistingOrderId, newQuantity);
 
     }
 }
