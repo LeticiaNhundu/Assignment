@@ -2,7 +2,7 @@ package za.co.rmb.orderbook.service;
 
 import za.co.rmb.orderbook.domain.Enum.Side;
 import za.co.rmb.orderbook.domain.Order;
-import za.co.rmb.orderbook.service.Implementation.Exceptions.OrderNotFoundException;
+import za.co.rmb.orderbook.Exceptions.OrderNotFoundException;
 
 import java.math.BigDecimal;
 import java.util.List;

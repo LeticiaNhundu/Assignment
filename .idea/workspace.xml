@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ac32f11-2efa-4cbd-af4a-68267579814a" name="Changes" comment="Implement OrderBook and Matching Engine">
-      <change afterPath="$PROJECT_DIR$/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/Exceptions/OrderNotFoundException.java" afterDir="false" />
+    <list default="true" id="2ac32f11-2efa-4cbd-af4a-68267579814a" name="Changes" comment="refactor code ,add some error handling  and add read me file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/Exceptions/OrderNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/Exceptions/OrderNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/MatchingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/MatchingEngineImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/OrderServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/OrderServiceImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/MatchingEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/MatchingEngineService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/domain/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/domain/OrderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/OrderServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,8 +140,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MatchingEngineServiceTest" />
-        <item itemvalue="JUnit.OrderServiceTest" />
         <item itemvalue="JUnit.OrderTest" />
+        <item itemvalue="JUnit.OrderServiceTest" />
         <item itemvalue="JUnit.MatchingEngineServiceTest.testMatchSellOrder_SingleMatchingBuyOrder_FullyFillsBuyOrder" />
         <item itemvalue="JUnit.MatchingEngineServiceTest.testMatchSellOrder_SingleMatchingBuyOrder_PartiallyFillsBuyOrder" />
       </list>
@@ -165,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687098922453</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor code ,add some error handling  and add read me file">
+      <created>1687110416806</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687110416806</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,7 +186,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implement OrderBook and Matching Engine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement OrderBook and Matching Engine" />
+    <MESSAGE value="refactor code ,add some error handling  and add read me file" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor code ,add some error handling  and add read me file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

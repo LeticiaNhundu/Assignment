@@ -1,7 +1,7 @@
 package za.co.rmb.orderbook.service;
 
 import za.co.rmb.orderbook.domain.Order;
-import za.co.rmb.orderbook.service.Implementation.Exceptions.OrderNotFoundException;
+import za.co.rmb.orderbook.Exceptions.OrderNotFoundException;
 
 public interface MatchingEngineService {
     void match(Order order) throws Exception;

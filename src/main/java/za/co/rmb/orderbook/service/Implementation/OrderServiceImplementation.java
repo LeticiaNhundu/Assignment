@@ -1,9 +1,8 @@
 package za.co.rmb.orderbook.service.Implementation;
 
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 import za.co.rmb.orderbook.domain.Enum.Side;
 import za.co.rmb.orderbook.domain.Order;
-import za.co.rmb.orderbook.service.Implementation.Exceptions.OrderNotFoundException;
+import za.co.rmb.orderbook.Exceptions.OrderNotFoundException;
 import za.co.rmb.orderbook.service.OrderService;
 
 import java.math.BigDecimal;
@@ -38,7 +37,7 @@ public class OrderServiceImplementation implements OrderService {
     public void deleteOrder(long orderId) throws OrderNotFoundException {
         Order order = getOrderById(orderId);
         if (order == null) {
-            throw new OrderNotFoundException("Order with ID " + orderId + " not found.");
+            throw new OrderNotFoundException(orderId);
         }
 
         Map<Long, Order> orderAtPrice = (order.getSide() == Side.BUY) ? bidOrders.get(order.getPrice()) : askOrders.get(order.getPrice());
@@ -53,7 +52,7 @@ public class OrderServiceImplementation implements OrderService {
     public void modifyOrder(long orderId, int newQuantity) throws OrderNotFoundException {
         Order order = getOrderById(orderId);
         if (order == null) {
-            throw new OrderNotFoundException("Order with ID " + orderId + " not found.");
+            throw new OrderNotFoundException(orderId);
         }
         order.setQuantity(newQuantity);
     }
