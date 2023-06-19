@@ -42,7 +42,6 @@ public class MatchingEngineImplementation implements MatchingEngineService {
             _orderService.addOrder((sellOrder));
         }
     }
-
     @Override
     public void matchBuyOrder(Order buyOrder) throws OrderNotFoundException {
         List<Order> sellOrders =_orderService.getOrdersByPriceAndSide(buyOrder.getPrice(),Side.SELL);
@@ -63,6 +62,5 @@ public class MatchingEngineImplementation implements MatchingEngineService {
         if (buyOrder.getQuantity() > 0) {
             _orderService.addOrder(buyOrder);
         }
-
     }
 }

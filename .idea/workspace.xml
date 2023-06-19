@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2ac32f11-2efa-4cbd-af4a-68267579814a" name="Changes" comment="Do some clean up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/MatchingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/MatchingEngineImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/OrderServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/rmb/orderbook/service/Implementation/OrderServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/domain/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/domain/OrderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/OrderServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +56,7 @@
       <recent name="za.co.rmb.orderbook.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MatchingEngineServiceTest">
+  <component name="RunManager" selected="JUnit.OrderServiceTest">
     <configuration name="MatchingEngineServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OrderBook" />
       <extension name="coverage">
@@ -132,9 +136,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderServiceTest" />
         <item itemvalue="JUnit.MatchingEngineServiceTest" />
         <item itemvalue="JUnit.OrderTest" />
-        <item itemvalue="JUnit.OrderServiceTest" />
         <item itemvalue="JUnit.MatchingEngineServiceTest.testMatchSellOrder_SingleMatchingBuyOrder_FullyFillsBuyOrder" />
         <item itemvalue="JUnit.MatchingEngineServiceTest.testMatchSellOrder_SingleMatchingBuyOrder_PartiallyFillsBuyOrder" />
       </list>
@@ -170,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687150295576</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Do some clean up">
+      <created>1687150603654</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687150603654</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,18 +206,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/OrderServiceTest.java</url>
-          <line>42</line>
+          <line>43</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java</url>
-          <line>150</line>
+          <line>142</line>
           <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/za/co/rmb/orderbook/service/MatchingEngineServiceTest.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

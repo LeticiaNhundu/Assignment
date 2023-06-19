@@ -18,7 +18,6 @@ public class OrderServiceImplementation implements OrderService {
         askOrders = new TreeMap<>();
         ordersById = new HashMap<>();
     }
-
     @Override
     public long addOrder(Order order) {
         Map<Long, Order> ordersAtPrice;
@@ -28,12 +27,10 @@ public class OrderServiceImplementation implements OrderService {
         ordersAtPrice = (side == Side.BUY) ? bidOrders.computeIfAbsent(price, k -> new LinkedHashMap<>())
                 : askOrders.computeIfAbsent(price, k -> new LinkedHashMap<>());
         ordersAtPrice.put(order.getId(), order);
-
         ordersById.put(order.getId(), order);
 
         return order.getId();
     }
-
     @Override
     public void deleteOrder(long orderId) throws OrderNotFoundException {
         Order order = getOrderById(orderId);
@@ -48,7 +45,6 @@ public class OrderServiceImplementation implements OrderService {
 
         ordersById.remove(orderId);
     }
-
     @Override
     public void modifyOrder(long orderId, int newQuantity) throws OrderNotFoundException {
         Order order = getOrderById(orderId);
@@ -57,7 +53,6 @@ public class OrderServiceImplementation implements OrderService {
         }
         order.setQuantity(newQuantity);
     }
-
     public List<Order> getSellOrders() {
         List<Order> sellOrders = new ArrayList<>();
         for (Map<Long, Order> ordersAtPrice : askOrders.values()) {
@@ -65,12 +60,10 @@ public class OrderServiceImplementation implements OrderService {
         }
         return sellOrders;
     }
-
     @Override
     public Order getOrderById(long orderId) {
         return ordersById.get(orderId);
     }
-
     @Override
     public List<Order> getOrdersByPriceAndSide(BigDecimal price , Side side) {
         List<Order>allOrders = new ArrayList<>();

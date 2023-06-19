@@ -28,11 +28,11 @@ public class MatchingEngineServiceTest {
     private Order buyOrder4;
     private Order buyOrder5;
     private MatchingEngineImplementation matchingEngineImplementation;
-
     private OrderServiceImplementation orderServiceImplementation;
     @Before
     public void setUp() {
         buyOrder = new Order(BigDecimal.valueOf(100), 100, Side.BUY);
+
         sellOrder1 = new Order(BigDecimal.valueOf(100), 40, Side.SELL);
         sellOrder2 = new Order(BigDecimal.valueOf(100), 50, Side.SELL);
         sellOrder3 = new Order(BigDecimal.valueOf(100), 20, Side.SELL);
@@ -40,16 +40,16 @@ public class MatchingEngineServiceTest {
         sellOrder5 = new Order(BigDecimal.valueOf(100), 100, Side.SELL);
 
         sellOrder = new Order(BigDecimal.valueOf(50), 100, Side.SELL);
+
         buyOrder1 = new Order(BigDecimal.valueOf(50), 40, Side.BUY);
         buyOrder2 = new Order(BigDecimal.valueOf(50), 80, Side.BUY);
         buyOrder3 = new Order(BigDecimal.valueOf(50), 20, Side.BUY);
         buyOrder4 = new Order(BigDecimal.valueOf(50), 100, Side.BUY);
         buyOrder5 = new Order(BigDecimal.valueOf(50), 100, Side.BUY);
-        orderServiceImplementation = mock(OrderServiceImplementation.class);
 
+        orderServiceImplementation = mock(OrderServiceImplementation.class);
         matchingEngineImplementation = new MatchingEngineImplementation(orderServiceImplementation);
     }
-
     @Test
     public void testMatchBuyOrder_NoMatchingSellOrders() throws Exception {
 
@@ -76,11 +76,9 @@ public class MatchingEngineServiceTest {
 
         // verify that the buy order quantity was fully filled
         assertEquals(0, buyOrder.getQuantity());
-
         // verify that the sell order quantity was fully filled
         assertEquals(0, sellOrder5.getQuantity());
     }
-
     @Test
     public void testMatchBuyOrder_SingleMatchingSellOrder_PartiallyFillsBuyOrder() throws Exception {
 
@@ -91,10 +89,8 @@ public class MatchingEngineServiceTest {
 
         // Verify that the sell order quantity was partially filled
         assertEquals(0, sellOrder1.getQuantity());
-
         // Verify that the buy order quantity was partially filled
         assertEquals(60, buyOrder.getQuantity());
-
     }
     @Test
     public void testMatchBuyOrder_MultipleMatchingSellOrders_FullyOrPartiallyFillBuyOrder() throws Exception {
@@ -109,9 +105,7 @@ public class MatchingEngineServiceTest {
         assertEquals(30, sellOrder4.getQuantity());
         // Verify that the buy order was fully or partially filled
         assertEquals(0, buyOrder.getQuantity());
-
     }
-
     @Test
     public void testMatchSellOrder_NoMatchingBuyOrders() throws Exception {
         when(orderServiceImplementation.getOrdersByPriceAndSide(eq(BigDecimal.valueOf(50)), eq(Side.BUY)))
@@ -137,11 +131,9 @@ public class MatchingEngineServiceTest {
 
         // verify that the sell order quantity was fully filled
         assertEquals(0, sellOrder.getQuantity());
-
         // verify that the buy order quantity was fully filled
         assertEquals(0, buyOrder5.getQuantity());
     }
-
     @Test
     public void testMatchSellOrder_SingleMatchingBuyOrder_PartiallyFillsBuyOrder() throws Exception {
 
@@ -152,10 +144,8 @@ public class MatchingEngineServiceTest {
 
         // Verify that the buy order quantity was partially filled
         assertEquals(0, buyOrder1.getQuantity());
-
         // Verify that the sell order quantity was partially filled
         assertEquals(60, sellOrder.getQuantity());
-
     }
     @Test
     public void testMatchSellOrder_MultipleMatchingBuyOrders_FullyOrPartiallyFillBuyOrder() throws Exception {
@@ -170,6 +160,5 @@ public class MatchingEngineServiceTest {
         assertEquals(100, buyOrder4.getQuantity());
         // Verify that the sell order was fully or partially filled
         assertEquals(0, sellOrder.getQuantity());
-
     }
 }

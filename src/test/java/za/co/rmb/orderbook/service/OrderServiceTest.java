@@ -34,6 +34,7 @@ public class OrderServiceTest {
     public void testAddOrder() {
         long orderId = orderServiceImplementation.addOrder(order);
         List<Order> orders = orderServiceImplementation.getOrdersByPriceAndSide(order.getPrice(),order.getSide());
+
         assertTrue(orders.contains(order));
         assertEquals(orderId, order.getId());
     }
@@ -42,15 +43,14 @@ public class OrderServiceTest {
         long orderId = orderServiceImplementation.addOrder(deleteOrder);
         orderServiceImplementation.deleteOrder(orderId);
         Order o = orderServiceImplementation.getOrderById(orderId);
-        assertNull(o);
 
+        assertNull(o);
     }
     @Test(expected = OrderNotFoundException.class)
     public void testDeleteOrderWithNonExistingOrderId() throws OrderNotFoundException {
         long nonExistingOrderId = 1234;
 
         orderServiceImplementation.deleteOrder(nonExistingOrderId);
-
     }
     @Test
     public void testModifyOrder() throws OrderNotFoundException {
@@ -68,12 +68,11 @@ public class OrderServiceTest {
         orderServiceImplementation.addOrder(modifyOrder2);
 
         orderServiceImplementation.modifyOrder(orderId,50);
-
         List<Order> sellOrders =orderServiceImplementation.getSellOrders();
+
         assertEquals(modifyOrder1, sellOrders.get(0));
         assertEquals(modifyOrder2, sellOrders.get(1));
         assertEquals(modifyOrder, sellOrders.get(2));
-
     }
     @Test(expected = OrderNotFoundException.class)
     public void testModifyOrderWithNonExistingOrderId() throws OrderNotFoundException {
@@ -81,6 +80,5 @@ public class OrderServiceTest {
         int newQuantity = 10;
 
         orderServiceImplementation.modifyOrder(nonExistingOrderId, newQuantity);
-
     }
 }

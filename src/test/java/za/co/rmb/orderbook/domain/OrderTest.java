@@ -35,7 +35,5 @@ public class OrderTest {
         Order order = new Order(price,quantity,side);
           order.setQuantity(100);
         assertEquals(100,order.getQuantity());
-
     }
-
 }
